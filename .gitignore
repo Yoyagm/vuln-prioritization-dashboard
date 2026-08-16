@@ -1,0 +1,22 @@
+# Raw feeds: 96 MB xz + 3 GB expanded. Rebuilt by `make data`, never committed.
+data/raw/
+data/interim/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Streamlit / notebooks
+.streamlit/secrets.toml
+.ipynb_checkpoints/
+
+# OS
+.DS_Store
