@@ -91,6 +91,25 @@ httpx       0.28.1   requires_python >=3.8
 numpy       2.5.2    requires_python >=3.12
 ```
 
+**CORRECCIÓN (2026-08-15): esa lista NO es un conjunto instalable.** Son las últimas versiones de
+cada paquete por separado, que es otra cosa. Al instalarlas juntas, `uv` falla:
+
+```
+Because streamlit>=1.61.1 depends on pyarrow>=7.0,<25 and you require pyarrow==25.0.1,
+we can conclude that your requirements are unsatisfiable.
+```
+
+**Conjunto resuelto y verificado que sí instala** (Python 3.12.13, macOS arm64,
+`uv venv --python 3.12`):
+
+```
+streamlit 1.61.1   pandas 3.0.5   pyarrow 24.0.0   plotly 6.9.0
+numpy 2.5.2        requests 2.34.2   pytest 9.1.1
+```
+
+`pyarrow` baja a **24.0.0**, no 25.0.1. El `requirements.txt` se genera con
+`uv pip freeze`, nunca a mano desde esta lista.
+
 ## Despliegue
 
 - **Streamlit Community Cloud admite Python 3.10–3.14 y usa 3.12 por defecto.**
