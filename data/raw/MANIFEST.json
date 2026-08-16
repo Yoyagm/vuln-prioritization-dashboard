@@ -1,0 +1,321 @@
+{
+  "generated_at": "2026-08-16T05:32:48+00:00",
+  "notice": "This project uses data from the fkie-cad/nvd-json-data-feeds mirror, which uses and redistributes data from the NVD API but is neither endorsed nor certified by the NVD.",
+  "files": [
+    {
+      "name": "kev",
+      "url": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "path": "data/raw/kev.json",
+      "bytes": 1583171,
+      "sha256": "52a5fe9ab6c3379298707559b5df54fb50daac45d27ea74e85d45f9632b59a79",
+      "records": 1665,
+      "fetched_at": "2026-08-16T05:32:47+00:00"
+    },
+    {
+      "name": "epss-current",
+      "url": "https://epss.empiricalsecurity.com/epss_scores-current.csv.gz",
+      "path": "data/raw/epss_scores-current.csv.gz",
+      "bytes": 2543434,
+      "sha256": "c376c70485b1aec8f8b0537791aea22b40990f7b8898716dad2272096e96190b",
+      "records": 360142,
+      "fetched_at": "2026-08-16T05:32:47+00:00"
+    },
+    {
+      "name": "epss-2023-08-15",
+      "url": "https://epss.empiricalsecurity.com/epss_scores-2023-08-15.csv.gz",
+      "path": "data/raw/epss_2023-08-15.csv.gz",
+      "bytes": 1334012,
+      "sha256": "3417dc5a0c8cdb1b6e6e24f97c7c496bdbad4aaf11c84c2c29499ba07ef5b6dc",
+      "records": 209883,
+      "fetched_at": "2026-08-16T05:32:47+00:00"
+    },
+    {
+      "name": "epss-2024-02-15",
+      "url": "https://epss.empiricalsecurity.com/epss_scores-2024-02-15.csv.gz",
+      "path": "data/raw/epss_2024-02-15.csv.gz",
+      "bytes": 1489051,
+      "sha256": "d71ee0c7c7ac7e08b6452e4e3fc316885108e7c4276f9f73daf2b3a5e558c15e",
+      "records": 235925,
+      "fetched_at": "2026-08-16T05:32:47+00:00"
+    },
+    {
+      "name": "epss-2024-08-15",
+      "url": "https://epss.empiricalsecurity.com/epss_scores-2024-08-15.csv.gz",
+      "path": "data/raw/epss_2024-08-15.csv.gz",
+      "bytes": 1554017,
+      "sha256": "ffadd5866a634d5f9589ee15131e9c9aaee88c66f938ee52aae8808876f771f3",
+      "records": 256575,
+      "fetched_at": "2026-08-16T05:32:47+00:00"
+    },
+    {
+      "name": "epss-2025-02-15",
+      "url": "https://epss.empiricalsecurity.com/epss_scores-2025-02-15.csv.gz",
+      "path": "data/raw/epss_2025-02-15.csv.gz",
+      "bytes": 1670034,
+      "sha256": "e9f5285c6ab05a959a642ea336a2933dcb004bcfc474bc8ac165b9b74fcc8ae5",
+      "records": 278216,
+      "fetched_at": "2026-08-16T05:32:47+00:00"
+    },
+    {
+      "name": "epss-2025-08-15",
+      "url": "https://epss.empiricalsecurity.com/epss_scores-2025-08-15.csv.gz",
+      "path": "data/raw/epss_2025-08-15.csv.gz",
+      "bytes": 1937296,
+      "sha256": "3ebfc6f21d1071286e81a1036c956e985edc14a847c3dce6244e86f08c627c0d",
+      "records": 290001,
+      "fetched_at": "2026-08-16T05:32:47+00:00"
+    },
+    {
+      "name": "nvd-1999",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-1999.json.xz",
+      "path": "data/raw/nvd-annual/CVE-1999.json.xz",
+      "bytes": 210880,
+      "sha256": "b21a844a7de93b10719ebfb8215adde9ba38c83245a086f2ccf5271c84c403ab",
+      "records": 1579,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2000",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2000.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2000.json.xz",
+      "bytes": 207324,
+      "sha256": "b333f375cbec918af63bcc460296b90d2c79cf6f8771b8713b8deda140a31d7c",
+      "records": 1243,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2001",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2001.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2001.json.xz",
+      "bytes": 311768,
+      "sha256": "fbd8b4b2f5aaeed81756c76046a05dc971a603e4fabd75805a1040541e571451",
+      "records": 1556,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2002",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2002.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2002.json.xz",
+      "bytes": 569004,
+      "sha256": "7513c9273fd39944e4bea4e6a4f9181f23a4ae2b7432acdc3225c65bbab38a1d",
+      "records": 2393,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2003",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2003.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2003.json.xz",
+      "bytes": 427948,
+      "sha256": "33505d269c5bdc939a84a16ca451a996b86d9fbfeab222b2df63ba97cb744424",
+      "records": 1555,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2004",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2004.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2004.json.xz",
+      "bytes": 781800,
+      "sha256": "dba7727b48a1d12de67a14430f9f93eb5b11119d7ef33501818d865b34d87419",
+      "records": 2707,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2005",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2005.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2005.json.xz",
+      "bytes": 1176416,
+      "sha256": "e5deb6fb1de28d5fb53d044011b3aee0dd87fdd20f58fb0417474c688f2f7acd",
+      "records": 4770,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2006",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2006.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2006.json.xz",
+      "bytes": 1969736,
+      "sha256": "1f5969e3bf973d518f703497071b7e4e73ccf1d5657e263a18939da18099d1c6",
+      "records": 7145,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2007",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2007.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2007.json.xz",
+      "bytes": 2059080,
+      "sha256": "70c124d9ba524ea25ea8d2b6f1daeaafe0c22a3e3d53ee3de41cf09189668416",
+      "records": 6580,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2008",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2008.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2008.json.xz",
+      "bytes": 2269624,
+      "sha256": "a4afcb9cce99f2aa5f8cbfd1058a6753374ccb4ecd7e46f8b41489cbae7bef39",
+      "records": 7179,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2009",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2009.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2009.json.xz",
+      "bytes": 1907576,
+      "sha256": "83b4b6a975f61c2bbc02b704dd818729e1b81428e653b61751b1bac510f91bb0",
+      "records": 5054,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2010",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2010.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2010.json.xz",
+      "bytes": 1768012,
+      "sha256": "5bbb9049c88dabf7dbac5b69ebbdec39dea91c9554eb2206c2672eb67647038f",
+      "records": 5249,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2011",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2011.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2011.json.xz",
+      "bytes": 1716972,
+      "sha256": "14d8ddbfe0bcb5873ae75c1bb21f3690e5d4eaee31b99d4939694d2ebe970147",
+      "records": 4899,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2012",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2012.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2012.json.xz",
+      "bytes": 1951652,
+      "sha256": "8c4d2fa3e1117d4cdd2c761af6f334db82c0763d80a48027bcb42a4cf1d9da79",
+      "records": 5939,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2013",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2013.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2013.json.xz",
+      "bytes": 2111192,
+      "sha256": "eeeee72e0999726376ced01061c9f66618f35c4b1140e8d622032a29af1d8d56",
+      "records": 6830,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2014",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2014.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2014.json.xz",
+      "bytes": 2344116,
+      "sha256": "de779220419bdd669ffc5fcb8e4ffd275e8ea7562a64eab42c2d9ed17845391d",
+      "records": 9002,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2015",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2015.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2015.json.xz",
+      "bytes": 2076780,
+      "sha256": "03fb2c2908a02aba6d7fc228c73340e29e7505256556cd217fd660aee8b21123",
+      "records": 8779,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2016",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2016.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2016.json.xz",
+      "bytes": 2484540,
+      "sha256": "87c286217e9776051731d33a838ef4123ad7944c90f1bb2e911d0d3673949f3a",
+      "records": 10647,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2017",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2017.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2017.json.xz",
+      "bytes": 3761104,
+      "sha256": "abfbeee2f1430f0b9c67179a5dabc2e0d5cb14282f94f6a5689df60fd25777b7",
+      "records": 17104,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2018",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2018.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2018.json.xz",
+      "bytes": 3894184,
+      "sha256": "0b366d53b442624738c8f269eef721dd31e23d0170ed91a0dc9d7d08cfd3cb30",
+      "records": 17817,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2019",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2019.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2019.json.xz",
+      "bytes": 4564304,
+      "sha256": "8fc27b7f5dec3fd48f829b39202c2f4ab1d9766f14ee70e806692fd7627a1ceb",
+      "records": 17620,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2020",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2020.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2020.json.xz",
+      "bytes": 5414884,
+      "sha256": "329288f11475ab13e8c4b42c279953d7b98a38e492462281929db68277d8ed91",
+      "records": 21069,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2021",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2021.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2021.json.xz",
+      "bytes": 7033856,
+      "sha256": "8179d251bd355e6f06b4e5f2b9e02c8891c1d872fad6cc0a90bdb0c9d0e2c92c",
+      "records": 23445,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2022",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2022.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2022.json.xz",
+      "bytes": 8351084,
+      "sha256": "32f540e88825191350b77762434c48040bd226dec0a9e158d8b8b69521db303b",
+      "records": 27526,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2023",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2023.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2023.json.xz",
+      "bytes": 9030604,
+      "sha256": "4f37ab96204ca942ac7bda99d34fd89bec4f84570b273059e8e9c1269ed53f6c",
+      "records": 31245,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2024",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2024.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2024.json.xz",
+      "bytes": 12183080,
+      "sha256": "5b1afc2e6fb413e10f90d28bea7c55f3509b94c1c81808d1905428c8e49cca6e",
+      "records": 39219,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2025",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2025.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2025.json.xz",
+      "bytes": 11209456,
+      "sha256": "96dc547cffed6fb8178fd7d8f38a878598fee7f98cccce9e1ab4ca52bc5d8e5d",
+      "records": 45145,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    },
+    {
+      "name": "nvd-2026",
+      "url": "https://github.com/fkie-cad/nvd-json-data-feeds/releases/latest/download/CVE-2026.json.xz",
+      "path": "data/raw/nvd-annual/CVE-2026.json.xz",
+      "bytes": 12093748,
+      "sha256": "2a1c505d942468b8c8e0b6ea9a1f310cbb0afdfeab8a8deccbebccf8855dfadd",
+      "records": 44063,
+      "fetched_at": "2026-08-16T05:32:48+00:00"
+    }
+  ]
+}

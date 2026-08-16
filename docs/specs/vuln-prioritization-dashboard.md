@@ -213,7 +213,7 @@ precomputed. `st.cache_data` on the loaders.
 Each must be verifiable by running the stated command and checking the stated result. Do not start a
 milestone with the previous one's tests red.
 
-- [ ] **M1 — Reproducible ingest.**
+- [x] **M1 — Reproducible ingest.**
   `src/ingest.py` fetches all four sources into `data/raw/` and writes `MANIFEST.json` (URL, bytes,
   sha256, fetched-at, row count each). Handles the EPSS 302 and the line-1 comment; retries with
   backoff; a **progress watchdog**, not just a socket timeout — that is precisely how the NVD API
@@ -221,14 +221,14 @@ milestone with the previous one's tests red.
   *Verify:* `rm -rf data/raw && make ingest` completes under 3 minutes and
   `pytest tests/test_ingest.py` passes offline against fixtures. `MANIFEST.json` lists ≥ 34 files.
 
-- [ ] **M2 — Extract and join.**
+- [x] **M2 — Extract and join.**
   `src/extract.py` walks the annual NVD files year by year (never the 3 GB file whole) and
   `src/build.py` joins KEV and EPSS into `data/processed/vulnerabilities.parquet`.
   *Verify:* `make build` produces the file; `pytest tests/test_schema.py` asserts every column,
   dtype and null rule in §3.2, that `cve_id` is unique, that no `Rejected` row survives, and that
   the file is ≤ 12 MB. Peak RSS stays under 2 GB (asserted in the test).
 
-- [ ] **M3 — The measurement.**
+- [x] **M3 — The measurement.**
   `src/metrics.py` implements §3.4 and `src/analyse.py` writes `data/processed/analysis.json`.
   *Verify:* `make analyse` reproduces the §1 tables within ±1 % of the values recorded there.
   `pytest tests/test_metrics.py` includes a **tie-handling guard with a negative control**: a

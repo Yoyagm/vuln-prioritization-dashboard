@@ -1,5 +1,9 @@
-# Raw feeds: 96 MB xz + 3 GB expanded. Rebuilt by `make data`, never committed.
-data/raw/
+# Raw feeds: 116 MB compressed, 3 GB expanded. Rebuilt by `make ingest`.
+# The pattern is data/raw/* rather than data/raw/ because git cannot re-include
+# a file whose parent directory is excluded, and the manifest must be committed:
+# it is what proves which bytes produced the published numbers.
+data/raw/*
+!data/raw/MANIFEST.json
 data/interim/
 
 # Python
