@@ -15,7 +15,6 @@ from __future__ import annotations
 import gzip
 import json
 import lzma
-from pathlib import Path
 
 from src import extract, paths
 

@@ -16,7 +16,7 @@ import json
 import lzma
 import time
 from dataclasses import asdict, dataclass
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 import requests
@@ -154,7 +154,7 @@ def describe(source: Source) -> Fetched:
         bytes=source.dest.stat().st_size,
         sha256=sha256(source.dest),
         records=count_records(source.dest),
-        fetched_at=datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        fetched_at=datetime.now(UTC).isoformat(timespec="seconds"),
     )
 
 
@@ -179,7 +179,7 @@ def ingest(*, force: bool = False) -> list[Fetched]:
     paths.MANIFEST.write_text(
         json.dumps(
             {
-                "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+                "generated_at": datetime.now(UTC).isoformat(timespec="seconds"),
                 "notice": sources.NVD_MIRROR_NOTICE,
                 "files": [asdict(record) for record in records],
             },

@@ -236,7 +236,7 @@ milestone with the previous one's tests red.
   implementation gives the known-right one — plus a companion test proving the guard fails when the
   averaging is removed. A guard that cannot fail protects nothing.
 
-- [ ] **M4 — Dashboard.**
+- [x] **M4 — Dashboard.**
   `app.py` with the four views of §5, reading only the two committed artefacts.
   *Verify:* `make app` serves locally; a smoke test drives it headless, asserts each view renders
   without exception and that cold start is under 5 s; one screenshot per view saved to `docs/img/`.

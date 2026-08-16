@@ -8,7 +8,7 @@ test enforces that.
 from __future__ import annotations
 
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -179,7 +179,7 @@ def analyse(frame: pd.DataFrame | None = None, *, verbose: bool = False) -> dict
     kev_catalog = json.loads(paths.KEV_JSON.read_text())
 
     result = {
-        "generated_at": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "generated_at": datetime.now(UTC).isoformat(timespec="seconds"),
         "kev_catalog_version": kev_catalog["catalogVersion"],
         "kev_released": kev_catalog["dateReleased"],
         "epss_score_date": epss_meta.get("score_date"),
