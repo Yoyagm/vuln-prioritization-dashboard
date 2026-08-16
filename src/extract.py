@@ -125,8 +125,22 @@ def annual_files(directory: Path | None = None) -> list[Path]:
 def extract_all(directory: Path | None = None, *, verbose: bool = False) -> pd.DataFrame:
     """Every CVE in the mirror, one row each.
 
-    Records accumulate as plain dicts rather than as a DataFrame per year: one
-    concat at the end is both faster and flatter in memory than 28 of them.
+    Memory here was measured rather than reasoned about. One year's ``json.load``
+    alone costs **1.84 GB** for the 45,145 CVEs of 2025, because each parsed CVE
+    drags along its ``configurations``, ``references`` and ``descriptions`` --
+    all of which this function throws away. That is what makes walking the files
+    one year at a time necessary; the combined file would be that cost many times
+    over.
+
+    The whole walk peaks between **3.5 and 4.8 GB**, and that spread is run-to-run
+    variance on identical code, not a property of any particular version: an
+    earlier round of "optimisation" here was comparing allocator noise. Building
+    one DataFrame per year and concatenating was tried and is not measurably
+    better, so the simpler version stayed.
+
+    Cutting the floor properly means parsing the JSON incrementally rather than
+    whole. That is a real option (``ijson``) and deliberately not taken: this
+    runs offline on a laptop, not in the deployed app.
     """
     files = annual_files(directory)
     if not files:
@@ -140,6 +154,9 @@ def extract_all(directory: Path | None = None, *, verbose: bool = False) -> pd.D
         if verbose:
             print(f"  {path.name:22s} {len(rows) - before:>7,}")
     frame = pd.DataFrame(rows)
+    # Nothing needs the dicts once the frame exists, and they are the single
+    # largest thing alive at this point.
+    del rows
     frame["published"] = pd.to_datetime(frame["published"], format="ISO8601")
     return frame
 

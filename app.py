@@ -223,12 +223,19 @@ def view_finding(analysis: dict) -> None:
 
     worst = max(block["effort_ratio"]["0.8"] for block in analysis["prospective"])
     apparent = f"{cvss_effort / epss_effort:.0f}×"
+    # Computed, not typed: an earlier hand-written "1.4-1.8x" was already wrong
+    # by the time the pipeline ran.
+    head = [
+        block["strategies"]["epss"]["coverage_at_budget"]
+        / block["strategies"]["cvss"]["coverage_at_budget"]
+        for block in analysis["prospective"]
+    ]
     st.markdown(
         f"""
 **Two things survive the honest test, at every cutoff:**
 
 1. **EPSS really does win at the head of the queue.** For the same budget it
-   catches 1.4–1.8× the vulnerabilities that later get exploited.
+   catches {min(head):.1f}–{max(head):.1f}× the vulnerabilities that later get exploited.
 2. **The {apparent} headline is mostly measurement artefact.** Once the scores
    are frozen, EPSS needs *more* work than CVSS to reach 80% coverage (ratio at
    most {worst:.1f}×): its tail buries a real share of what later gets exploited.

@@ -4,6 +4,9 @@
 pythonpath = ["."]
 testpaths = ["tests"]
 addopts = "-q --strict-markers"
+markers = [
+    "slow: runs the real pipeline over the full feeds; needs data/raw",
+]
 
 [tool.ruff]
 line-length = 100

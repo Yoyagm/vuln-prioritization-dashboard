@@ -124,3 +124,55 @@ class TestCommittedArtefact:
         assert len(frame) > 350_000
         assert frame["cve_id"].is_unique
         assert 1_000 < int(frame["in_kev"].sum()) < 5_000
+
+
+# Measured, not wished for. The observed peak is 3.5-4.8 GB across identical
+# runs -- allocator variance, not code -- with the floor set by one year's
+# json.load at 1.84 GB. The budget sits above that spread, and far below what
+# loading the 3 GB combined file would cost. That regression, someone deciding
+# CVE-all.json.xz is simpler, is what this test actually guards; it is not a
+# tripwire for a few hundred megabytes of drift.
+RSS_BUDGET_GB = 6.0
+
+
+@pytest.mark.slow
+@pytest.mark.skipif(
+    len(list(paths.NVD_ANNUAL.glob("CVE-*.json.xz"))) < 20,
+    reason="raw annual feeds not present -- run `make ingest`",
+)
+def test_the_full_extract_stays_inside_its_memory_budget():
+    """The reason the parse goes year by year, asserted rather than assumed.
+
+    Run in a subprocess so the measurement is of the extract alone, and so a
+    regression that loads the 3 GB combined file fails here instead of taking
+    the developer's machine down with it.
+    """
+    import subprocess
+    import sys
+
+    # The child reports its own high-water mark. Reading RUSAGE_CHILDREN from
+    # here would give the maximum across every child the test session has ever
+    # reaped, so the same code passed or failed depending on which other tests
+    # had run first.
+    probe = (
+        "import resource, sys;"
+        "from src import extract;"
+        "n = len(extract.extract_all());"
+        "peak = resource.getrusage(resource.RUSAGE_SELF).ru_maxrss;"
+        "scale = 1e9 if sys.platform == 'darwin' else 1e6;"  # bytes vs kibibytes
+        "print(n, peak / scale)"
+    )
+    completed = subprocess.run(
+        [sys.executable, "-c", probe],
+        cwd=paths.ROOT,
+        capture_output=True,
+        text=True,
+        timeout=300,
+        check=True,
+    )
+    rows, peak_gb = completed.stdout.split()
+
+    assert int(rows) > 350_000
+    assert float(peak_gb) < RSS_BUDGET_GB, (
+        f"peak RSS {float(peak_gb):.2f} GB exceeds {RSS_BUDGET_GB} GB"
+    )
