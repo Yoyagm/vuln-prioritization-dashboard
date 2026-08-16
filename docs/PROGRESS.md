@@ -2,15 +2,43 @@
 
 ## Estado actual
 
-Fase 0 (entender y verificar las fuentes) **cerrada**. Los tres feeds están descargados y validados
-en `data/raw/`, y todo lo comprobado con peticiones reales está en `docs/PHASE0-FINDINGS.md`.
+Spec escrita y commiteada (`docs/specs/vuln-prioritization-dashboard.md`), con los siete hitos, los
+contratos de datos y — lo importante — el hallazgo ya **medido**, no supuesto: los tanteos de la
+fase 0 reprodujeron la comparación CVSS vs EPSS en cinco fechas de corte congeladas.
 
-Siguiente paso: la especificación (`docs/specs/vuln-prioritization-dashboard.md`), que define los
-hitos, los contratos de datos y la métrica del hallazgo — "¿predice el CVSS la explotación real?".
+Siguiente paso: M1–M3 (ingesta reproducible, join y métricas) en `src/`, portando la lógica ya
+verificada de los scripts de tanteo a código de producción con tests.
 
 Bloqueos: ninguno.
 
 ## Registro
+
+### 2026-08-15 (tarde)
+
+- **Hallazgo, y es el eje del proyecto:** la ventaja de EPSS sobre el CVSS es real en la cabeza de
+  la cola y **artefacto de medición** en el resto. Retrospectivamente, cubrir el 80 % del KEV cuesta
+  137.952 CVEs por CVSS y 22.736 por EPSS — **6,1×**. Pero congelando EPSS en una fecha pasada (FIRST
+  publica archivos diarios) y puntuando solo contra los CVEs que CISA añadió al KEV **después**, la
+  ventaja se invierte en la cola: EPSS necesita **más** trabajo que el CVSS para llegar al 80 %
+  (ratio 0,5–0,7×), aunque sigue ganando a igual presupuesto (1,4–1,8× de explotados capturados).
+  Estable en las cinco fechas probadas (2023-08-15 … 2025-08-15), con bootstrap sobre los positivos.
+  La conclusión operativa que implementa el dashboard es la híbrida: KEV primero, EPSS para la
+  cabeza de la cola, CVSS como guardia de la cola larga.
+
+- **Decisión:** los empates no se rompen, se promedian. Decenas de miles de CVEs comparten un CVSS de
+  9,8; cualquier implementación que deje que `sort` resuelva ese empate está midiendo el orden
+  alfabético del identificador, no la métrica. La curva se evalúa por bloques de puntuación distinta
+  y se lee linealmente entre ellos, que es el valor esperado bajo orden aleatorio dentro del bloque.
+
+- **Decisión:** el repo se publica en GitHub al terminar, no ahora.
+
+- **Hecho:** medido que la extracción del NVD entero, año a año, tarda **20 s** y produce un parquet
+  de **5,5 MB** — el presupuesto de artefacto commiteado se cumple con holgura.
+
+- **Corregido:** la lista de versiones de la fase 0 **no era instalable**. `streamlit 1.61.1` exige
+  `pyarrow < 25`, así que la versión buena es **24.0.0** y no 25.0.1. El `requirements.txt` se
+  genera con `uv pip freeze`, nunca a mano — que es justo la causa nº 1 de "va en local y falla en
+  Streamlit Cloud" que ya teníamos anotada.
 
 ### 2026-08-15
 
