@@ -2,16 +2,46 @@
 
 ## Estado actual
 
-Spec escrita y commiteada (`docs/specs/vuln-prioritization-dashboard.md`), con los siete hitos, los
-contratos de datos y — lo importante — el hallazgo ya **medido**, no supuesto: los tanteos de la
-fase 0 reprodujeron la comparación CVSS vs EPSS en cinco fechas de corte congeladas.
+**M1–M6 cerrados.** Tubería reproducible, dashboard de cuatro vistas, 76 tests en verde (ninguno
+toca la red), README con las cifras generadas desde `analysis.json`, cinco ADRs. Repo público en
+<https://github.com/Yoyagm/vuln-prioritization-dashboard>.
 
-Siguiente paso: M1–M3 (ingesta reproducible, join y métricas) en `src/`, portando la lógica ya
-verificada de los scripts de tanteo a código de producción con tests.
+Siguiente paso: **M7**, el único que queda — desplegar en Streamlit Community Cloud, que exige
+iniciar sesión con la cuenta de GitHub de Johan, y luego añadir la URL al README.
 
-Bloqueos: ninguno.
+Bloqueos: el despliegue necesita que Johan autorice la sesión en share.streamlit.io.
 
 ## Registro
+
+### 2026-08-16
+
+- **Hecho:** M1–M6. `src/ingest.py` (con watchdog de caudal, no de socket, y `MANIFEST.json` con
+  sha256 y recuento por fichero), `src/extract.py`, `src/build.py`, `src/metrics.py`,
+  `src/analyse.py`, `app.py` con cuatro vistas y `src/viz.py`. 76 tests, un clon limpio instala
+  desde `requirements.txt` y los pasa en 20 s. Los números de producción reproducen **exactos** los
+  del tanteo: 137.952 CVEs por CVSS frente a 22.736 por EPSS para cubrir el 80 % del KEV.
+
+- **Decisión:** las cifras del README se generan con `scripts/render_numbers.py` desde
+  `analysis.json`, y un test regenera el bloque y lo compara. Se justificó sola: el rango
+  "1,4–1,8×" que yo había escrito a mano ya era falso — el real es **1,2–1,8×**.
+
+- **Hallazgo, y corrección de la spec:** el criterio "pico de RSS por debajo de 2 GB" del hito M2 me
+  lo había inventado sin medir. Al escribir el test salió 4 GB; el "arreglo" evidente (un DataFrame
+  por año en vez de acumular diccionarios) lo dejó peor; y ejecuciones repetidas del **mismo** código
+  dieron entre 3,5 y 4,8 GB. O sea que la comparación entre variantes estaba midiendo ruido del
+  asignador, no código. El presupuesto queda en **6 GB**, que es lo que el test puede garantizar de
+  verdad, y lo que protege es la regresión que importa: que alguien decida cargar entero el fichero
+  combinado de 3 GB. El suelo real es `json.load` de un solo año: 1,84 GB.
+
+- **Decisión:** los empates de puntuación no se rompen, se promedian, y el guardián lleva control
+  negativo. Ver `docs/adr/0003`.
+
+- **Bloqueo, y por qué el equipo lo escribí yo:** los cinco subagentes lanzados murieron sin
+  entregar nada — tres `architect`, un `app-builder` y una prueba trivial de una línea. No es el
+  modelo (murieron con Fable y con Opus) ni la complejidad. La spec y el código los escribió el
+  agente principal.
+
+- **Publicado:** repo público `Yoyagm/vuln-prioritization-dashboard`, cinco commits.
 
 ### 2026-08-15 (tarde)
 
